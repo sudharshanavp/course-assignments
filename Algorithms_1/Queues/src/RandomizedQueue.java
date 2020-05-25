@@ -1,4 +1,4 @@
-import edu.princeton.cs.algs4.*;
+import edu.princeton.cs.algs4.StdRandom;
 import java.util.Iterator;
 import java.util.NoSuchElementException;
 
@@ -8,20 +8,22 @@ public class RandomizedQueue<Item> implements Iterable<Item> {
 	private int size;
 	
     // construct an empty randomized queue
-    public RandomizedQueue() {
+
+	public RandomizedQueue() {
     	queue = (Item[]) new Object[2];
     	size = 0;
     }
     
     // Resize array function
     
-    private void resize(int capacity) {
+
+	private void resize(int capacity) {
     	assert capacity >= size;
     	Item[] temp = (Item[]) new Object[capacity];
     	for (int i = 0; i < size; i++) {
     		temp[i] = queue[i];
 		}
-    	queue = array;
+    	queue = temp;
     }
     
     // is the randomized queue empty?
@@ -77,7 +79,7 @@ public class RandomizedQueue<Item> implements Iterable<Item> {
     	private int index;
     	private Item[] randomQueue;
     	
-    	public RandomQueueIterator() {
+		public RandomQueueIterator() {
     		randomQueue = (Item[]) new Object[size];
     		for (int i = 0; i < size; i++)
     			randomQueue[i] = queue[i];
