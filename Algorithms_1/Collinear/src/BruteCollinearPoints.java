@@ -36,13 +36,13 @@ public class BruteCollinearPoints {
 		IllegalArgumentException e = new IllegalArgumentException();
 		
 		if (points == null) {
-			throw e;
+			throw new NullPointerException();
 		}
 		
 		for (int i = 0; i < points.length - 1; i++) {
 			for (int j = 0; j < points.length; j++) {
 				if (points[i] == null || points[j] == null) {
-					throw e; 
+					throw new NullPointerException(); 
 				}
 				
 				if ((i != j) && (points[i].compareTo(points[j]) == 0)) {
@@ -59,21 +59,23 @@ public class BruteCollinearPoints {
 	
 	// Add the points to the segment array
 	private void addSegments(Point point1, Point point2) {
+		
 		LineSegment segment = new LineSegment(point1, point2);
 		
+				
 		if (segmentCount == segmentArray.length)
-		   resizeArray(segmentCount * 2);
+		   resizeArray(segmentArray.length * 2);
 		
-	   	segmentArray[segmentCount++] = segment;
+	   	segmentArray[segmentCount] = segment;
+	   	segmentCount++;
 	}
    
 	// resize function to make the array dynamic
-	private void resizeArray(int capacity) {	
-	   assert capacity >= segmentCount;
+	private void resizeArray(int capacity) {	  
 	   
-	   LineSegment[] copyArray = new LineSegment[capacity];
-	   copyArray = Arrays.copyOf(segmentArray, segmentCount);
-	   segmentArray = copyArray;
+		LineSegment[] copyArray = new LineSegment[capacity];
+		copyArray = Arrays.copyOf(segmentArray, capacity);
+		this.segmentArray = copyArray;
 	}
    
 	public int numberOfSegments() {
