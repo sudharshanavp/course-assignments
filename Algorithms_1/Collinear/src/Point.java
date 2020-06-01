@@ -67,7 +67,7 @@ public class Point implements Comparable<Point> {
 			return 0.0;
 		}
 		
-		return ((double)(that.y - this.y))/(that.x - this.y);
+		return (double)(that.y - this.y)/(that.x - this.x);
     }
 
     /**
@@ -137,8 +137,8 @@ public class Point implements Comparable<Point> {
      */
     public static void main(String[] args) {
         /* YOUR CODE HERE */
-    	Point t1 = new Point(10532, 25438);
-    	Point t2 = new Point(979, 2631);
+    	Point t1 = new Point(1, 6);
+    	Point t2 = new Point(9, 7);
     	System.out.println(t1.slopeTo(t2));
     }
 }
