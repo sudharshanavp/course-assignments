@@ -16,6 +16,7 @@ public class BruteCollinearPoints {
 		segmentArray = new LineSegment[2];
 		segmentCount = 0;
 		
+		Arrays.sort(points);
 		for (int i = 0; i < points.length - 3; i++) {
 			for (int j = i + 1; j < points.length - 2; j++) {
 				for (int j2 = j + 1; j2 < points.length - 1; j2++) {
