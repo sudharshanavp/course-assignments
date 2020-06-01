@@ -83,6 +83,7 @@ public class Point implements Comparable<Point> {
      *         argument point
      */
     public int compareTo(Point that) {
+    	
     	if ((this.y == that.y) && (this.x == that.x)) {
 			return 0;
 		}
@@ -136,8 +137,8 @@ public class Point implements Comparable<Point> {
      */
     public static void main(String[] args) {
         /* YOUR CODE HERE */
-    	Point t1 = new Point(12, 14);
-    	Point t2 = new Point(13, 14);
+    	Point t1 = new Point(10532, 25438);
+    	Point t2 = new Point(979, 2631);
     	System.out.println(t1.slopeTo(t2));
     }
 }
